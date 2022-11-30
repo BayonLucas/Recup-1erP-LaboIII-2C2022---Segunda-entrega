@@ -1,0 +1,126 @@
+body{
+    width: 100;
+    height: 100;
+    /* height: 1500px; */
+    background-image: url(./fondoPerro2.jpg);
+    background-size: cover;
+}
+header, footer{  
+    width: 100%;  
+    height: 80px;
+    margin: 0;
+}
+.links{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+li{
+    list-style: none;
+}
+
+
+#anuncios-container{
+    padding: 20px;
+    margin: 20px;
+    width: 90%;
+    height: 1150px;
+    display: flex;
+    flex-flow: column;
+    align-content: center;
+    align-items: center;
+    overflow: overlay;
+}
+
+/*ScrollBar*/
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(90, 90, 90);
+}
+
+::-webkit-scrollbar-track {
+    background: none;
+}
+
+/* --------- Cards ---------------------------------------------------------------------------- */
+.card {
+    margin: 3px;
+    opacity: 0.55;
+    display: inline-block;
+    width: 75%;
+    border-style: none;
+    background-color: lightgrey;
+    padding: 10px;
+    border-radius: 10px;
+}
+.card h3{
+    font-size: xx-large;
+    text-align: center;
+}
+.card p{
+    font-size: x-large;
+    padding-left: 50px;
+}
+#card-Especificaciones{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+#card-Especificaciones > img{
+    width: 40px;
+    height: 40px;
+    padding: 2px 2px 2px 2px;
+    display: inline;
+}
+#card-Especificaciones > p{
+    padding: 10px;
+    font-size: x-large;
+}
+#card-btn{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+.card input{
+    width: 80%;
+    height: 40px;
+    background-color: lightsteelblue;
+    border-radius: 5px;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+/* -------Header------------------------------------------------------------------------------ */
+header{
+    display: flex;
+    justify-content: center;
+}
+#logo{
+    width: 80px;
+    height: 70px;
+}
+#nav-header{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* -------Footer------------------------------------------------------------------------------ */
+footer{
+    display: flex;
+    justify-content: center;
+}
+#nav-footer{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#nav-footer p{
+    font-size: large;
+    color: white;
+}
