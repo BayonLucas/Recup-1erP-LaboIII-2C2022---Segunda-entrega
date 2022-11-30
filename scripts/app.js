@@ -197,24 +197,26 @@ function completarForm(anuncio){
     (anuncio.tos == "Si")? chTosPerreras.checked : "";
 }
 function actualizarTabla(lista) {
-    lista.sort(function(a, b){
-        if (a.id > b.id) {
-            return 1;
-          }
-          if (a.id < b.id) {
-            return -1;
-          }
-          return 0;
-    });    
-    const container = document.getElementById("tabla-container");
-    if(container.children.length > 0 && lista.length > 0){
-        const table = crearTabla(lista);
-        container.removeChild(container.children[0]);
-        container.appendChild(table);
-    } else if (lista.length > 0){
-        const table = crearTabla(lista);
-        container.appendChild(table);
-    }   
+    if(lista.length>0){
+        lista.sort(function(a, b){
+            if (a.id > b.id) {
+                return 1;
+              }
+              if (a.id < b.id) {
+                return -1;
+              }
+              return 0;
+        });    
+        const container = document.getElementById("tabla-container");
+        if(container.children.length > 0 && lista.length > 0){
+            const table = crearTabla(lista);
+            container.removeChild(container.children[0]);
+            container.appendChild(table);
+        } else if (lista.length > 0){
+            const table = crearTabla(lista);
+            container.appendChild(table);
+        }   
+    }
 }
 function ModificarAnuncio(id){
     let anuncio = crearAnuncio(id);
@@ -244,6 +246,9 @@ function modificarBotones(){
 function eliminarAnuncio(lista, id){
     let index = lista.findIndex((element) => element.id === id)
     lista.splice(index, 1);
+    if(lista.length === 0){
+        tabla.remove();
+    }
     localStorage.setItem("anuncios", JSON.stringify(lista));
 }
 function playSpinner(lista, anuncio){
