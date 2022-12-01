@@ -100,6 +100,8 @@ btnEliminar.addEventListener("click", () =>{
     btnCancelar.click();
 });
 
+
+//selector
 document.getElementById("sltVacunas").addEventListener("change", (e) =>{
     const _divVacunas = document.getElementById("vacunas-Container");
     if(e.target.value == 1){
@@ -107,6 +109,10 @@ document.getElementById("sltVacunas").addEventListener("change", (e) =>{
         _divVacunas.classList.add("vac-visible");
     }
     else{
+        const checkboxs = document.getElementById("vacunas-Container").querySelectorAll("input");   
+        checkboxs.forEach(element => {
+            element.checked = false;
+        });
         _divVacunas.classList.add("invisible");
         _divVacunas.classList.remove("vac-visible");
     }

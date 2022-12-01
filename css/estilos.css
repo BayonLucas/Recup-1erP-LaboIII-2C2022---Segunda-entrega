@@ -55,8 +55,6 @@ header{
 footer{
     display: flex;
     justify-content: center;
-    /* position: fixed; 
-    bottom:0;  */
 }
 #nav-footer{
     width: 80%;
@@ -133,6 +131,7 @@ input[type="radio"]{
         display: flex;
         align-items: center;    
         flex-direction: column;
+        margin-bottom: 10em;
     }
     #form-container{
         height: 700px; /*450px*/
@@ -143,6 +142,7 @@ input[type="radio"]{
     main{
         height: calc(100vh) ;
     }
+    
 }
 @media screen and (max-width: 850px){
     #tabla-container {
@@ -151,10 +151,10 @@ input[type="radio"]{
         padding: 10px;
     }
     table {
-    width: 90vh;
-    overflow: hidden;
-    overflow-x: scroll;
-    display:block;
+        width: 90vh;
+        display:block;
+        overflow: scroll;
+        overflow-x: scroll;
     }
 }
 @media screen and (min-width: 1150px){
