@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+*{
+    font-family: 'Montserrat', sans-serif;
+}
 body{
     margin: 0;
     border: 0;  
@@ -65,21 +69,20 @@ footer{
 /* ------------------------------------------------------------------------------------------ */
 /* Formulario */
 #form-container{
-    width: 90%;
     display: flex;
     justify-content: center;
     align-content: center;
-    align-items: center;
-    height: 500px; /*450px*/
+    height: 60vh; /*450px*/
     padding: 10px;
     margin: 10px;
     flex-wrap: wrap;
 }
 #fieldset-parent{
-    width: 90%;
-    height: 100%; /*90%*/
+    width: 70%;
+    height: 80%; /*90%*/
     display: flex;
     flex-direction: column;
+    padding: 15px;
 }
 #fieldset-parent fieldset{
     border-style: none;
@@ -126,7 +129,7 @@ input[type="radio"]{
 }
 /* ------------------------------------------------------------------------------------------ */
 
-@media screen and (max-width: 1150px){
+@media screen and (max-width: 1310px){
     #form-especificaciones{
         display: flex;
         align-items: center;    
@@ -134,7 +137,7 @@ input[type="radio"]{
         margin-bottom: 10em;
     }
     #form-container{
-        height: 700px; /*450px*/
+        height: 800px; /*450px*/
     }
     #banner>img{
         display: none;
@@ -142,10 +145,18 @@ input[type="radio"]{
     main{
         height: calc(100vh) ;
     }
-    
-}
-@media screen and (max-width: 850px){
     #tabla-container {
+        width: 90%;
+        margin: 0 auto;
+        padding: 10px;
+    }
+    table {
+        width: 70%;
+        display: block;
+        overflow: auto;
+        padding: 10px;
+    }
+    /* #tabla-container {
         margin: 0;
         border: 10px;
         padding: 10px;
@@ -155,7 +166,7 @@ input[type="radio"]{
         display:block;
         overflow: scroll;
         overflow-x: scroll;
-    }
+    } */
 }
 @media screen and (min-width: 1150px){
     #form-especificaciones{
@@ -208,6 +219,7 @@ small{
 }
 .invisible{
     display: none;
+    opacity: 0;
 }
 
 

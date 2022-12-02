@@ -37,13 +37,13 @@ export const validarImportes = (e) =>{
 }
 export const validarTexto = (e) => {
     const input = e.target;
-    const pattern = /^[a-zA-Z0-9À-ÿ\u00f1\u00d1]+(\s*[a-zA-Z0-9À-ÿ\u00f1\u00d1]*)*[a-zA-Z0-9À-ÿ\u00f1\u00d1]+$/g;
+    const pattern = /^([a-zA-ZÀ-ÿ\u00f1\u00d1])\w+/g;
     const text = input.value.trim();
 
     let message = "";
 
     if(text.length !== 0){
-        if(!validarLogitud(input, 5,25)){
+        if(!validarLogitud(input, 4,25)){
             message = message + "El campo debe contener entre 4 y 25 caracteres. ";
             console.log(input + " - Mensaje: " + message);
         }

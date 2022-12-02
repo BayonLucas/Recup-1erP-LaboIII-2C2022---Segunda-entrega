@@ -228,7 +228,8 @@ function ModificarAnuncio(id){
     let anuncio = crearAnuncio(id);
     if(validarAnuncio(anuncio)){
         eliminarAnuncio(listaAnuncios, id);
-        agregarAnuncio(listaAnuncios, anuncio);
+        // agregarAnuncio(listaAnuncios, anuncio);
+        playSpinner(listaAnuncios, anuncio);
         actualizarTabla(listaAnuncios);
     }
 }
