@@ -155,7 +155,7 @@ input[type="radio"]{
         display: none;
     }
     main{
-        height: calc(100vh) ;
+        height: calc(100em) ;
     }
     #tabla-container {
         width: 90%;
