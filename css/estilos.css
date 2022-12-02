@@ -237,6 +237,7 @@ small{
 /*Alert custom*/
 #customAlert{
     align-items: center;
+    justify-content: center;
 }
 .ventana{
     background-color: black;
@@ -244,10 +245,26 @@ small{
 #customAlert-container{
     text-align: center;
     color: white;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
 }
 #customAlert:target{
     opacity:1;
     pointer-events:auto;
 }
-
-  
+.overlay { 
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 1500ms;
+    visibility: visible; 
+    opacity: 1; 
+  }
+  .overlay:target{
+    visibility: hidden;
+    opacity: 0; 
+  }

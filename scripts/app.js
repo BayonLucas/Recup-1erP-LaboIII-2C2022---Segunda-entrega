@@ -321,6 +321,9 @@ function playCustomAlert(titulo, message){
     
     ventanaFlotante.classList.remove("invisible");
     btnGuardar.classList.add("invisible");
+    btnModificar.classList.add("invisible");
+    btnEliminar.classList.add("invisible");
+    btnCancelar.classList.add("invisible");
     
     setTimeout(()=>{
         ventanaFlotante.classList.add("invisible");

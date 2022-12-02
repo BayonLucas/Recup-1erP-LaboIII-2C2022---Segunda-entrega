@@ -12,11 +12,10 @@ listaAnuncios.sort((a,b) => {
 
 const contenedor = document.getElementById("anuncios-container");
 
-function crearTarjeta(titulo, descripcion, especie, precio, raza, fechaNacimiento, vacunas, sextuple, rabia, tosP) {
+function crearTarjeta(titulo, descripcion, especie, precio, raza, fechaNacimiento, vacunas, sextuple, rabia, tosP, castrado) {
     const newCard = document.createElement("div");
     
     const _titulo = document.createElement("h3");
-    // _titulo.textContent = "Titulo: " + titulo;
     _titulo.textContent = titulo;
     
     const _descripcion = document.createElement("p");
@@ -24,6 +23,9 @@ function crearTarjeta(titulo, descripcion, especie, precio, raza, fechaNacimient
     
     const _precio = document.createElement("p");
     _precio.textContent = "Precio: $" + precio;
+
+    const _castrado = document.createElement("p");
+    _castrado.textContent = "Castrado: " + castrado;
 
     const _especie = document.createElement("p");
     _especie.textContent = "Especie: " + especie;
@@ -97,6 +99,7 @@ function crearTarjeta(titulo, descripcion, especie, precio, raza, fechaNacimient
     newCard.appendChild(_descripcion);
     newCard.appendChild(_especie);
     newCard.appendChild(_precio);
+    newCard.appendChild(_castrado);
     newCard.appendChild(_div);
     if(_divVacunas.hasChildNodes){
       newCard.appendChild(_divVacunas);
@@ -109,7 +112,7 @@ function crearTarjeta(titulo, descripcion, especie, precio, raza, fechaNacimient
 
 listaAnuncios.forEach((elemento) => {
     
-    const $nuevaTarjeta = crearTarjeta(elemento.titulo, elemento.descripcion, elemento.especie, elemento.precio, elemento.raza, elemento.fechaNacimiento, elemento.vacunas, elemento.sextuple, elemento.rabia, elemento.tos);
+    const $nuevaTarjeta = crearTarjeta(elemento.titulo, elemento.descripcion, elemento.especie, elemento.precio, elemento.raza, elemento.fechaNacimiento, elemento.vacunas, elemento.sextuple, elemento.rabia, elemento.tos, elemento.castrado);
 
     contenedor.appendChild($nuevaTarjeta);
 });
