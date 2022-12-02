@@ -16,6 +16,9 @@ const $smallBtn = document.getElementById("smlBtn");
 
 const spinner = document.getElementById("spinner");
 
+const _divVacunas = document.getElementById("vacunas-Container");
+
+
 let idSelected = 0;
 let estadoBotones = 0;
 
@@ -103,7 +106,6 @@ btnEliminar.addEventListener("click", () =>{
 
 //selector
 document.getElementById("sltVacunas").addEventListener("change", (e) =>{
-    const _divVacunas = document.getElementById("vacunas-Container");
     if(e.target.value == 1){
         _divVacunas.classList.remove("invisible");
         _divVacunas.classList.add("vac-visible");
@@ -121,6 +123,9 @@ document.getElementById("sltVacunas").addEventListener("change", (e) =>{
 //#region funciones
 function getEspecie(){
     return document.querySelector('input[name="Animal"]:checked').value;
+}
+function getCastrado(){
+    return document.querySelector('input[name="castrado"]:checked').value;
 }
 function getNuevoID(arr){
     let id = 1;
@@ -157,7 +162,7 @@ function crearAnuncio(id){
     if(!estaCompleto(txtTitulo, txtDescripcion, txtPrecio, txtRaza, dateFecha, sltVacunas)){
         return null;
     }
-    return new Anuncio_Animal(id, txtTitulo.value, txtDescripcion.value, getEspecie(), txtPrecio.value, txtRaza.value, dateFecha.value, sltVacunas.value, chequearVacunas(chSextuple.checked), chequearVacunas(chRabia.checked), chequearVacunas(chTosPerreras.checked));
+    return new Anuncio_Animal(id, txtTitulo.value, txtDescripcion.value, getEspecie(), txtPrecio.value, txtRaza.value, dateFecha.value, sltVacunas.value, chequearVacunas(chSextuple.checked), chequearVacunas(chRabia.checked), chequearVacunas(chTosPerreras.checked), getCastrado());
 }
 function agregarAnuncio(lista, anuncio){
     if(!validarAnuncio(anuncio)){
@@ -179,7 +184,7 @@ function agregarAnuncio(lista, anuncio){
     //playSpinner(listaAnuncios);
 }
 function completarForm(anuncio){
-    const {txtTitulo, chPerro, chGato, txtDescripcion, txtPrecio, txtRaza, dateFecha, sltVacunas, chSextuple, chRabia, chTosPerreras} = controles;
+    const {txtTitulo, chPerro, chGato, txtDescripcion, txtPrecio, txtRaza, dateFecha, sltVacunas, chSextuple, chRabia, chTosPerreras, rSi, rNo} = controles;
     if(anuncio.especie === "Perro"){
         chPerro.checked = true;
     } else {
@@ -193,14 +198,24 @@ function completarForm(anuncio){
     switch(anuncio.vacunas){
         case "Si":
             sltVacunas.value = 1;
+            _divVacunas.classList.remove("invisible");
+            _divVacunas.classList.add("vac-visible");
+            (anuncio.sextuple === "Si")? chSextuple.checked = true : chSextuple.checked = false;
+            (anuncio.rabia === "Si")? chRabia.checked = true : chRabia.checked = false;
+            (anuncio.tos === "Si")? chTosPerreras.checked = true: chTosPerreras.checked = false;
             break;
         case "No":
+            _divVacunas.classList.add("invisible");
+            _divVacunas.classList.remove("vac-visible");
             sltVacunas.value = 0 ;
             break;
     }
-    (anuncio.sextuple == "Si")? chSextuple.checked : "";
-    (anuncio.rabia == "Si")? chRabia.checked : "";
-    (anuncio.tos == "Si")? chTosPerreras.checked : "";
+    if(anuncio.castrado === "Si"){
+        rSi.checked = true;
+    } else {
+        rNo.checked = true;
+    }
+
 }
 function actualizarTabla(lista) {
     if(lista.length>0){
@@ -228,8 +243,8 @@ function ModificarAnuncio(id){
     let anuncio = crearAnuncio(id);
     if(validarAnuncio(anuncio)){
         eliminarAnuncio(listaAnuncios, id);
-        // agregarAnuncio(listaAnuncios, anuncio);
-        playSpinner(listaAnuncios, anuncio);
+        agregarAnuncio(listaAnuncios, anuncio);
+        // playSpinner(listaAnuncios, anuncio);
         actualizarTabla(listaAnuncios);
     }
 }
@@ -268,11 +283,10 @@ function playSpinner(lista, anuncio){
 
     
     setTimeout(() => {
+        if(document.querySelector("table"))
+            document.querySelector("table").remove();
         spinner.classList.add("invisible");       
-        if(aux){
-            aux.classList.remove("invisible");
-        }
-        
+
         agregarAnuncio(lista, anuncio)
     }, 2000);
 }

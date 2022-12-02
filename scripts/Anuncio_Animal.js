@@ -8,9 +8,10 @@ class Anuncio_Animal extends Animal
     sextuple;
     rabia;
     tos;
+    castrado;
     
     // constructor(id, titulo, descripcion, especie, precio, raza, fechaNacimiento, vacunas){
-    constructor(id, titulo, descripcion, especie, precio, raza, fechaNacimiento, vacunas, sextuple, rabia, tos){
+    constructor(id, titulo, descripcion, especie, precio, raza, fechaNacimiento, vacunas, sextuple, rabia, tos, castrado){
         super(id, titulo, descripcion, especie, precio);
         this.Raza = raza;
         this.FechaNacimiento = fechaNacimiento;
@@ -18,6 +19,7 @@ class Anuncio_Animal extends Animal
         this.sextuple = sextuple;
         this.rabia = rabia;
         this.tos = tos;
+        this.castrado = castrado;
     }
 
     set Raza(value){

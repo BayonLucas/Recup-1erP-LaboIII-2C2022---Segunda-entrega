@@ -7,7 +7,6 @@ body{
     border: 0;  
 }
 main{
-    /* height: calc(100vh - 80px - 80px) ; */
     height: 100vh ;
 }
 header, footer{
@@ -15,6 +14,8 @@ header, footer{
     width: 100%;  
     height: 80px;
     margin: 0;
+    display: flex;
+    justify-content: center;
 }
 .links{
     color: black;
@@ -41,32 +42,22 @@ h1{
 /* ------------------------------------------------------------------------------------------ */
 /*Header*/
 header{
-    display: flex;
-    justify-content: center;
+    top: 0;
+    left: 0;
+    position: sticky;
 }
+
 #logo{
     width: 80px;
     height: 70px;
 }
-#nav-header{
+#nav-header, #nav-footer{
     width: 80%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-weight: bold;
 }
-/* ------------------------------------------------------------------------------------------ */
-/*footer*/
-footer{
-    display: flex;
-    justify-content: center;
-}
-#nav-footer{
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-/* ------------------------------------------------------------------------------------------ */
 /* Formulario */
 #form-container{
     display: flex;
@@ -105,6 +96,27 @@ input, select{
     margin-top: 0;
     margin-bottom: 0;
 }
+
+
+
+#f-castrado{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+
+}
+#f-castrado fieldset{
+    display: flex;
+    justify-content: center;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}    
+
+
+
 #form-Animal{
     display: flex;
     justify-content: center;
@@ -137,7 +149,7 @@ input[type="radio"]{
         margin-bottom: 10em;
     }
     #form-container{
-        height: 800px; /*450px*/
+        height: 920px; /*450px*/
     }
     #banner>img{
         display: none;
@@ -156,17 +168,14 @@ input[type="radio"]{
         overflow: auto;
         padding: 10px;
     }
-    /* #tabla-container {
-        margin: 0;
-        border: 10px;
-        padding: 10px;
+    header, footer{
+        height: auto;
     }
-    table {
-        width: 90vh;
-        display:block;
-        overflow: scroll;
-        overflow-x: scroll;
-    } */
+    header nav, footer nav{
+        display: flex;
+        flex-direction: column;
+    }
+
 }
 @media screen and (min-width: 1150px){
     #form-especificaciones{
