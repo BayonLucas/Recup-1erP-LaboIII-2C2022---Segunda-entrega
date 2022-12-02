@@ -37,7 +37,7 @@ export const validarImportes = (e) =>{
 }
 export const validarTexto = (e) => {
     const input = e.target;
-    const pattern = /^([a-zA-Z0-9])\w+/g;
+    const pattern = /^[a-zA-Z0-9À-ÿ\u00f1\u00d1]+(\s*[a-zA-Z0-9À-ÿ\u00f1\u00d1]*)*[a-zA-Z0-9À-ÿ\u00f1\u00d1]+$/g;
     const text = input.value.trim();
 
     let message = "";
